@@ -1,0 +1,30 @@
+{
+  "name": "av-organizer",
+  "version": "0.0.1",
+  "description": "A small utility to organize photos and videos before editing",
+  "main": "index.js",
+  "bin": {
+    "av-organizer": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matpratta/av-organizer.git"
+  },
+  "keywords": [
+    "audiovisual",
+    "photography",
+    "video",
+    "organization"
+  ],
+  "author": "Matheus Pratta",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/matpratta/av-organizer/issues"
+  },
+  "homepage": "https://github.com/matpratta/av-organizer#readme",
+  "dependencies": {
+    "cli-progress": "^3.12.0",
+    "exifr": "^7.1.3",
+    "mime": "^3.0.0"
+  }
+}
