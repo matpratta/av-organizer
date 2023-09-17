@@ -155,10 +155,10 @@ async function main(command) {
   // Those are used to track which directory we'll use for each type
   console.log('Moving files...');
   const typeDirNames = {
-    image: 'Image',
-    video: 'Video',
-    audio: 'Audio',
-    other: 'Other',
+    image: 'Images',
+    video: 'Videos',
+    audio: 'Audios',
+    other: 'Others',
   };
   
   // Create type directories
