@@ -22,8 +22,8 @@ function isValidFile(filePath) {
   // We may want to ignore a few file names
   if (
     '._' == path.basename(filePath).substring(0, 2) ||
-  [
-    '.DS_Store',
+    [
+      '.DS_Store',
     ].includes(path.basename(filePath))
   ) {
     return false;
@@ -50,8 +50,7 @@ async function getFileInfo(filePath) {
 
   // For certain file types, let's extract the taken date instead of modified at
   if (['image/jpeg', 'image/tiff'].includes(mimeType)) {
-    const fileData = await fs.promises.readFile(filePath);
-    const exifData = await exif.parse(fileData);
+    const exifData = await exif.parse(filePath);
     fileTakenAt = exifData.DateTimeOriginal || null;
   }
 
