@@ -20,9 +20,12 @@ function createDirectoryIfNotExisting(path) {
 
 function isValidFile(filePath) {
   // We may want to ignore a few file names
-  if ([
+  if (
+    '._' == path.basename(filePath).substring(0, 2) ||
+  [
     '.DS_Store',
-  ].includes(path.basename(filePath))) {
+    ].includes(path.basename(filePath))
+  ) {
     return false;
   }
 
