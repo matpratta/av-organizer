@@ -38,6 +38,13 @@ function isValidFile(filePath) {
   return true;
 }
 
+function getDateString(date) {
+  // Let's assume the camera already stores photos with the right timezone offset here
+  // All we need to do is normalize it, so that the time matches the time at where the photo was taken, not UTC or the machine time
+  const normalizedDate = new Date(date.getTime() - 60 * 1000 * date.getTimezoneOffset());
+  return normalizedDate.toISOString().split('T').shift();
+}
+
 async function getFileInfo(filePath) {
   const mimeType = mime.getType(filePath);
   const baseType = mimeType?.split('/').shift();
@@ -122,7 +129,7 @@ async function main(command) {
       .shift();
 
     // Creates listing
-    const dateString = groupDate.toISOString().split('T').shift();
+    const dateString = getDateString(groupDate);
     if (!filesPerTypeAndDate[groupType]) {
       filesPerTypeAndDate[groupType] = {};
     }
